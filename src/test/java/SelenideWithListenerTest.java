@@ -1,5 +1,5 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.RespositoryName;
+import data.RepositoryName;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import static org.openqa.selenium.By.linkText;
 
 public class SelenideWithListenerTest {
 
-    RespositoryName respositoryName = new RespositoryName();
+    RepositoryName repositoryName = new RepositoryName();
 
     @Test
     void selenideWithListenerTest(){
@@ -19,10 +19,10 @@ public class SelenideWithListenerTest {
         open("https://github.com");
 
         $(".search-input-container").click();
-        $("#query-builder-test").setValue(respositoryName.repoName).pressEnter();
-        $(linkText(respositoryName.repoName)).click();
+        $("#query-builder-test").setValue(repositoryName.repoName).pressEnter();
+        $(linkText(repositoryName.repoName)).click();
         $("#issues-tab").click();
-        $("#issue_1_link").shouldHave(text(respositoryName.issuieName));
+        $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
 
     }
 }
