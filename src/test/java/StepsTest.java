@@ -12,6 +12,7 @@ import static org.openqa.selenium.By.linkText;
 public class StepsTest {
 
     RepositoryName repositoryName = new RepositoryName();
+
     @Test
     void stepsTest(){
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -20,12 +21,12 @@ public class StepsTest {
             open("https://github.com");
         });
 
-        step("Поиск респозитория " + repositoryName.repoName, () -> {
+        step("Поиск репозитория " + repositoryName.repoName, () -> {
             $(".search-input-container").click();
             $("#query-builder-test").setValue(repositoryName.repoName).pressEnter();
         });
 
-        step("Переход в респозиторий " + repositoryName.repoName, () -> {
+        step("Переход в репозиторий " + repositoryName.repoName, () -> {
             $(linkText(repositoryName.repoName)).click();
         });
 
