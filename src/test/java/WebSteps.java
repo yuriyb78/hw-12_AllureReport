@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,7 +11,6 @@ public class WebSteps {
     public void openMainPage () {
 
         open("https://github.com");
-        Configuration.pageLoadStrategy = "eager";
     }
     @Step("Поиск репозитория {repoNmae}" )
     public void findRepository (String repoNmae) {
