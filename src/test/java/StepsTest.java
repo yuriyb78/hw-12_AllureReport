@@ -1,5 +1,5 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.RepositoryName;
+import data.TestData;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ import static org.openqa.selenium.By.linkText;
 
 public class StepsTest {
 
-    RepositoryName repositoryName = new RepositoryName();
+    TestData testData = new TestData();
 
     @Test
     void stepsTest(){
@@ -21,21 +21,21 @@ public class StepsTest {
             open("https://github.com");
         });
 
-        step("Поиск репозитория " + repositoryName.repoName, () -> {
+        step("Поиск репозитория " + testData.repoName, () -> {
             $(".search-input-container").click();
-            $("#query-builder-test").setValue(repositoryName.repoName).pressEnter();
+            $("#query-builder-test").setValue(testData.repoName).pressEnter();
         });
 
-        step("Переход в репозиторий " + repositoryName.repoName, () -> {
-            $(linkText(repositoryName.repoName)).click();
+        step("Переход в репозиторий " + testData.repoName, () -> {
+            $(linkText(testData.repoName)).click();
         });
 
         step("Переход во вкладку issue", () -> {
             $("#issues-tab").click();
         });
 
-        step("Проверка наличия записи с названием: " + repositoryName.issuieName, () -> {
-            $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
+        step("Проверка наличия записи с названием: " + testData.issuieName, () -> {
+            $("#issue_1_link").shouldHave(text(testData.issuieName));
         }) ;
 
 

@@ -1,22 +1,22 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
-import data.RepositoryName;
+import data.TestData;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
-public class AnnotetedStepsTest {
+public class AnnotatedStepsTest {
 
     WebSteps webSteps = new WebSteps();
-    RepositoryName repositoryName = new RepositoryName();
+    TestData testData = new TestData();
 
     @Test
     void annotedStepsTest (){
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         webSteps.openMainPage();
-        webSteps.findRepository(repositoryName.repoName);
-        webSteps.openReposytory(repositoryName.repoName);
+        webSteps.findRepository(testData.repoName);
+        webSteps.openReposytory(testData.repoName);
         webSteps.openIssue();
-        webSteps.checkIssueName(repositoryName.issuieName);
+        webSteps.checkIssueName(testData.issuieName);
 
 
     }
